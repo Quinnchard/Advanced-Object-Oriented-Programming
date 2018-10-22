@@ -6,7 +6,7 @@ class StateMachine {
         int input;
         boolean stateTransition = true;
         System.out.println("Welcome to The Rover Program! \nThe rover is currently not moving. \nType 1 to press the right pedal once to go forward.");
-        System.out.println("Type 4 to press the left pedal for 5 seconds in order to go backwards \nType 0 if you want to close the program.");
+        System.out.println("Type 4 to press the left pedal for 5 seconds in order to go backwards. \nType 5 to hold button 1 for 5 seconds to use the color camera. \nType 6 to hold button 1 for 10 seconds to use the 16-mm camera. \nType 7 to press button 1 twice to use the drill. \nType 0 if you want to close the program.");
         input = scnr.nextInt();
         System.out.println();
         if(input == 0)
@@ -18,18 +18,17 @@ class StateMachine {
             if(input == 0){
                 state = 0;
                 System.out.println("We are in state " + state + ".");
-                System.out.println("The rover is currently not moving. \nIf you wish to exit press 5. \nTo continue press 6.");
+                System.out.println("The rover is currently not moving. \nIf you wish to exit press 11 \nTo continue input 12");
                 input = scnr.nextInt();
                 System.out.println();
                 //This is the final state which exits the loop
-                if(input == 5){
+                if(input == 11){
                     System.out.println("Thank you for using The Rover Program!");
                     scnr.close();
                     stateTransition = false;
-                    System.out.println();
                 }
-                else{
-                    System.out.println("Type 1 to press the right pedal once to go forward. \nType 4 to press the left pedal for 5 seconds in order to go backwards");
+                if(input == 12){
+                    System.out.println("Type 1 to press the right pedal once to go forward. \nType 4 to press the left pedal for 5 seconds in order to go backwards. \nType 5 to hold button 1 for 5 seconds to use the color camera. \nType 6 to hold button 1 for 10 seconds to use the 16-mm camera. \nType 7 to press button 1 twice to use the drill.");
                     input = scnr.nextInt();
                     System.out.println();
                 }
@@ -68,6 +67,63 @@ class StateMachine {
                 state = 4;
                 System.out.println("We are in state " + state + ".");
                 System.out.println("The rover is currently going in reverse. \nType 0 to stop the rover.");
+                input = scnr.nextInt();
+                System.out.println();
+            }
+
+            //This is the fifth state which is for the user wants to use the color camera
+            if(input == 5){
+                state = 5;
+                System.out.println("We are in state " + state + ".");
+                System.out.println("You are currently using the color camera. \nType 6 to hold button 1 for 10 seconds to use the 16-mm camera. \nType 7 to press button 1 twice to use the drill. \nType 8 press button 1 to take a picture. \nType 9 to press button 1 for 5 seconds to activate the temporizer. \nType 0 to press button 2 return to the idle state.");
+                input = scnr.nextInt();
+                System.out.println();
+                if(input == 8){
+                    System.out.println("A picture has been taken.");
+                    System.out.println();
+                }
+                if(input == 9){
+                    System.out.println("A 'moon selfie' has been taken.");
+                    System.out.println();
+                }
+                System.out.println("You are currently using the color camera. \nType 6 to hold button 1 for 10 seconds to use the 16-mm camera. \nType 7 to press button 1 twice to use the drill. \nType 8 press button 1 to take a picture. \nType 9 to press button 1 for 5 seconds to activate the temporizer. \nType 0 to press button 2 return to the idle state.");
+                input = scnr.nextInt();
+                System.out.println();
+            }
+
+            //This is the sixth state which is for the user to use the 16-mm camera
+            if(input == 6){
+                state = 6;
+                System.out.println("We are in state " + state + ".");
+                System.out.println("You are currently using the 16-mm camera. \nType 5 to hold button 1 for 5 seconds to use the color camera. \nType 7 to press button 1 twice to use the drill. \nType 8 press button 1 to take a picture. \nType 9 to press button 1 for 5 seconds to activate the temporizer. \nType 0 to press button 2 return to the idle state.");
+                input = scnr.nextInt();
+                System.out.println();
+                if(input == 8){
+                    System.out.println("A picture has been taken.");
+                    System.out.println();
+                }
+                if(input == 9){
+                    System.out.println("A 'moon selfie' has been taken.");
+                    System.out.println();
+                }
+                System.out.println("You are currently using the 16-mm camera. \nType 5 to hold button 1 for 5 seconds to use the color camera. \nType 7 to press button 1 twice to use the drill. \nType 8 press button 1 to take a picture. \nTyper 9 to press button 1 for 5 seconds to activate the temporizer. \nType 0 to press button 2 return to the idle state.");
+                input = scnr.nextInt();
+                System.out.println();
+            }
+
+            //This is the seventh state which is for the user to use the drill
+            if(input == 7){
+                state = 7;
+                System.out.println("We are in state " + state + ".");
+                System.out.println("You are currently int the drill mode. \nType 10 to start drilling. \nType 0 to press button 2 to return to an idle state.");
+                input = scnr.nextInt();
+                System.out.println();
+                if(input == 10){
+                    System.out.println("You are currently drilling. \n\nType 7 to stop drilling.");
+                    input = scnr.nextInt();
+                    System.out.println();
+                }
+                System.out.println("You are currently int the drill mode. \nType 10 to start drilling. \nType 0 to press button 2 to return to an idle state.");
                 input = scnr.nextInt();
                 System.out.println();
             }
